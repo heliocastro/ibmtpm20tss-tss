@@ -1,6 +1,8 @@
 *.o
 *.so
+*.la
 acs/
+build/
 tpmutils/Debug/
 tpmutils/activatecredential/Debug/
 tpmutils/certify/Debug/
@@ -276,3 +278,4 @@ utils/Makefile.in
 utils12/.deps/
 utils12/Makefile
 utils12/Makefile.in
+.vscode/
