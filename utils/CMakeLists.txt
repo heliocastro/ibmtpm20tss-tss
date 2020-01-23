@@ -1,15 +1,3 @@
-if(CONFIG_HWTPM)
-    list(APPEND default_flags "TPM_INTERFACE_TYPE_DEFAULT=\"dev\"")
-endif()
-
-if(CONFIG_RMTPM)
-    list(APPEND default_flags "TPM_DEVICE_DEFAULT=\"/dev/tpmrm0\"")
-endif()
-
-if(CONFIG_TSS_NOECC)
-    list(APPEND default_flags "TPM_TSS_NOECC")
-endif()
-
 #---------------
 # main ibmtss shared library
 
@@ -41,7 +29,6 @@ if(CONFIG_TPM20)
         ntc2lib.c
         tssntc.c
     )
-    list(APPEND default_flags "TPM_TPM20")
 endif()
 
 if(CONFIG_TPM12)
@@ -54,7 +41,7 @@ if(CONFIG_TPM12)
         tssccattributes12.c
         CommandAttributeData12.c
     )
-    list(APPEND default_flags "TPM_TPM12")
+
 endif()
 
 set_target_properties(ibmtss PROPERTIES
@@ -62,9 +49,19 @@ set_target_properties(ibmtss PROPERTIES
     SOVERSION ${PROJECT_VERSION_MAJOR}
 )
 
-target_compile_definitions(ibmtss PUBLIC
-    ${TPM_OS_DEF}
-    ${default_flags}
+target_compile_definitions(ibmtss
+    PRIVATE
+        $<$<BOOL:${CONFIG_TPM20}>:TPM_TPM20>
+        $<$<BOOL:${CONFIG_TPM12}>:TPM_TPM12>
+        $<$<BOOL:${CONFIG_HWTPM}>:TPM_INTERFACE_TYPE_DEFAULT="dev">
+        $<$<BOOL:${CONFIG_RMTPM}>:TPM_DEVICE_DEFAULT="/dev/tpmrm0">
+    PUBLIC
+        $<$<BOOL:${UNIX}>:TPM_POSIX>
+        $<$<BOOL:${WIN32}>:TPM_WINDOWS>
+        $<$<BOOL:${CONFIG_TSS_NOECC}>:TPM_TSS_NOECC>
+        $<$<BOOL:${CONFIG_TSS_NOPRINT}>:TPM_TSS_NOPRINT>
+        $<$<BOOL:${CONFIG_TSS_NOFILE}>:TPM_TSS_NOFILE>
+        $<$<BOOL:${CONFIG_TSS_NOCRYPTO}>:TPM_TSS_NOCRYPTO>
 )
 
 target_link_libraries(ibmtss
@@ -74,7 +71,33 @@ target_link_libraries(ibmtss
 
 target_include_directories(ibmtss
     PUBLIC
-        ${PROJECT_SOURCE_DIR}/utils
+        $<INSTALL_INTERFACE:ibmtss>
+        $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/utils>
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+install(TARGETS ibmtss
+    EXPORT ibmtss-targets
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
+
+install(EXPORT ibmtss-targets
+    FILE
+        ibmtssTargets.cmake
+    NAMESPACE
+        ibmss::
+    DESTINATION
+        ${CMAKE_INSTALL_LIBDIR}/cmake/ibmtss
+)
+
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+    ${CMAKE_CURRENT_BINARY_DIR}/ibmtssConfigVersion.cmake
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY AnyNewerVersion
 )
 
 #---------------
@@ -92,8 +115,10 @@ set_target_properties(ibmtssutils PROPERTIES
     SOVERSION ${PROJECT_VERSION_MAJOR}
 )
 
-target_compile_definitions(ibmtssutils PUBLIC
-    ${TPM_OS_DEF}
+target_compile_definitions(ibmtssutils
+    PRIVATE
+        $<$<BOOL:${CONFIG_TPM20}>:TPM_TPM20>
+        $<$<BOOL:${CONFIG_TPM12}>:TPM_TPM12>
 )
 
 target_link_libraries(ibmtssutils
@@ -101,28 +126,10 @@ target_link_libraries(ibmtssutils
         ibmtss
 )
 
-#---------------------
-# Utilities
-
-function(add_tss_binary)
-    set(options OPTIONAL)
-    set(oneValueArgs DESTINATION)
-    set(multiValueArgs SOURCES)
-    cmake_parse_arguments(IBMTSS
-        "${options}"
-        "${oneValueArgs}"
-        "${multiValueArgs}"
-        ${ARGN}
-    )
-
-    add_executable(${ARGV0} ${IBMTSS_SOURCES})
-
-    if(CONFIG_TSS_NOECC)
-        target_compile_definitions(${ARGV0} PRIVATE "TPM_TSS_NOECC")
-    endif()
-
-    target_link_libraries(${ARGV0} PRIVATE ibmtssutils)
-endfunction()
+install(TARGETS ibmtssutils
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
 
 add_tss_binary(activatecredential SOURCES activatecredential.c)
 add_tss_binary(eventextend SOURCES eventextend.c)
@@ -241,5 +248,5 @@ add_tss_binary(ntc2getconfig SOURCES ntc2getconfig.c)
 add_tss_binary(ntc2preconfig SOURCES ntc2preconfig.c)
 add_tss_binary(ntc2lockconfig SOURCES ntc2lockconfig.c)
 add_tss_binary(publicname SOURCES publicname.c)
-add_tss_binary(tpmcmd SOURCES tpmcmd.c)
+add_tss_binary(tpmcmd SOURCES tpmcmd.c LIBRARIES)
 add_tss_binary(printattr SOURCES printattr.c)
