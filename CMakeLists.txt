@@ -7,6 +7,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 find_package(OpenSSL REQUIRED)
 
+option(BUILD_SHARED_LIBS "build as shared libraries" ON)
 option(CONFIG_TPM20 "Enable TPM 2.0 Features" TRUE)
 option(CONFIG_TPM12 "Enable TPM 1.2 Features" TRUE)
 option(CONFIG_TSS_NOPRINT "Build a TSS library without tracing or prints" FALSE)
