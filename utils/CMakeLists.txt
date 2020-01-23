@@ -1,5 +1,3 @@
-string(APPEND CMAKE_SHARED_LINKER_FLAGS " -Wl,--no-undefined")
-
 if(CONFIG_HWTPM)
     list(APPEND default_flags "TPM_INTERFACE_TYPE_DEFAULT=\"dev\"")
 endif()
@@ -74,19 +72,20 @@ target_link_libraries(ibmtss
         OpenSSL::Crypto
 )
 
+target_include_directories(ibmtss
+    PUBLIC
+        ${PROJECT_SOURCE_DIR}/utils
+)
 
 #---------------
 # ibmtssutils shared library
 
-set(IBMTSSUTILS_SRCS
+add_library(ibmtssutils
     cryptoutils.c
     ekutils.c
     imalib.c
     eventlib.c
     )
-
-
-add_library(ibmtssutils ${IBMTSSUTILS_SRCS})
 
 set_target_properties(ibmtssutils PROPERTIES
     VERSION ${PROJECT_VERSION}
@@ -95,12 +94,10 @@ set_target_properties(ibmtssutils PROPERTIES
 
 target_compile_definitions(ibmtssutils PUBLIC
     ${TPM_OS_DEF}
-    # ${default_flags}
 )
 
 target_link_libraries(ibmtssutils
     PUBLIC
-        OpenSSL::Crypto
         ibmtss
 )
 
@@ -118,13 +115,13 @@ function(add_tss_binary)
         ${ARGN}
     )
 
-    add_executable(${utility} ${IBMTSS_SOURCES})
+    add_executable(${ARGV0} ${IBMTSS_SOURCES})
 
     if(CONFIG_TSS_NOECC)
-        target_compile_definitions(${ARGN} PRIVATE TPM_TSS_NOECC)
+        target_compile_definitions(${ARGV0} PRIVATE "TPM_TSS_NOECC")
     endif()
 
-    target_link_libraries(${ARGN} PRIVATE ibmtssutils)
+    target_link_libraries(${ARGV0} PRIVATE ibmtssutils)
 endfunction()
 
 add_tss_binary(activatecredential SOURCES activatecredential.c)
