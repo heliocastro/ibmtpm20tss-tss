@@ -426,7 +426,7 @@ TPM_RC
 TSS_ActivateIdentity_Out_Unmarshalu(ActivateIdentity_Out *target, TPM_ST tag, BYTE **buffer, uint32_t *size)
 {
     TPM_RC rc = 0;
-    tag = tag;
+    (void) tag;
     if (rc == 0) {
 	rc = TSS_TPM_SYMMETRIC_KEY_Unmarshalu(&target->symmetricKey, buffer, size);
     } 
@@ -437,7 +437,7 @@ TPM_RC
 TSS_CreateEndorsementKeyPair_Out_Unmarshalu(CreateEndorsementKeyPair_Out *target, TPM_ST tag, BYTE **buffer, uint32_t *size)
 {
     TPM_RC rc = 0;
-    tag = tag;
+    (void) tag;
     if (rc == 0) {
 	rc = TSS_TPM_PUBKEY_Unmarshalu(&target->pubEndorsementKey, buffer, size);
     } 
@@ -451,7 +451,7 @@ TPM_RC
 TSS_CreateWrapKey_Out_Unmarshalu(CreateWrapKey_Out *target, TPM_ST tag, BYTE **buffer, uint32_t *size)
 {
     TPM_RC rc = 0;
-    tag = tag;
+    (void) tag;
     if (rc == 0) {
 	rc = TSS_TPM_KEY12_Unmarshalu(&target->wrappedKey, buffer, size);
     }
@@ -462,7 +462,7 @@ TPM_RC
 TSS_Extend_Out_Unmarshalu(Extend_Out *target, TPM_ST tag, BYTE **buffer, uint32_t *size)
 {
     TPM_RC rc = 0;
-    tag = tag;
+    (void) tag;
     if (rc == 0) {
 	rc = TSS_Array_Unmarshalu(target->outDigest, SHA1_DIGEST_SIZE, buffer, size);
     }
@@ -473,7 +473,7 @@ TPM_RC
 TSS_GetCapability12_Out_Unmarshalu(GetCapability12_Out *target, TPM_ST tag, BYTE **buffer, uint32_t *size)
 {
     TPM_RC rc = 0;
-    tag = tag;
+    (void) tag;
     if (rc == 0) {
 	rc = TSS_UINT32_Unmarshalu(&target->respSize, buffer, size);
     }
@@ -492,7 +492,7 @@ TPM_RC
 TSS_LoadKey2_Out_Unmarshalu(LoadKey2_Out *target, TPM_ST tag, BYTE **buffer, uint32_t *size)
 {
     TPM_RC rc = 0;
-    tag = tag;
+    (void) tag;
     if (rc == 0) {
 	rc = TSS_UINT32_Unmarshalu(&target->inkeyHandle, buffer, size);
     }
@@ -503,7 +503,7 @@ TPM_RC
 TSS_MakeIdentity_Out_Unmarshalu(MakeIdentity_Out *target, TPM_ST tag, BYTE **buffer, uint32_t *size)
 {
     TPM_RC rc = 0;
-    tag = tag;
+    (void) tag;
     if (rc == 0) {
     	rc = TSS_TPM_KEY12_Unmarshalu(&target->idKey, buffer, size);
     }
@@ -525,7 +525,7 @@ TPM_RC
 TSS_NV_ReadValueAuth_Out_Unmarshalu(NV_ReadValueAuth_Out *target, TPM_ST tag, BYTE **buffer, uint32_t *size)
 {
     TPM_RC rc = 0;
-    tag = tag;
+    (void) tag;
     if (rc == 0) {
 	rc = TSS_UINT32_Unmarshalu(&target->dataSize, buffer, size);
     }
@@ -544,7 +544,7 @@ TPM_RC
 TSS_NV_ReadValue_Out_Unmarshalu(NV_ReadValue_Out *target, TPM_ST tag, BYTE **buffer, uint32_t *size)
 {
     TPM_RC rc = 0;
-    tag = tag;
+    (void) tag;
     if (rc == 0) {
 	rc = TSS_UINT32_Unmarshalu(&target->dataSize, buffer, size);
     }
@@ -563,7 +563,7 @@ TPM_RC
 TSS_OIAP_Out_Unmarshalu(OIAP_Out *target, TPM_ST tag, BYTE **buffer, uint32_t *size)
 {
     TPM_RC rc = 0;
-    tag = tag;
+    (void) tag;
     if (rc == 0) {
 	rc = TSS_UINT32_Unmarshalu(&target->authHandle, buffer, size);
     }
@@ -577,7 +577,7 @@ TPM_RC
 TSS_OSAP_Out_Unmarshalu(OSAP_Out *target, TPM_ST tag, BYTE **buffer, uint32_t *size)
 {
     TPM_RC rc = 0;
-    tag = tag;
+    (void) tag;
     if (rc == 0) {
 	rc = TSS_UINT32_Unmarshalu(&target->authHandle, buffer, size);
     }
@@ -594,7 +594,7 @@ TPM_RC
 TSS_OwnerReadInternalPub_Out_Unmarshalu(OwnerReadInternalPub_Out *target, TPM_ST tag, BYTE **buffer, uint32_t *size)
 {
     TPM_RC rc = 0;
-    tag = tag;
+    (void) tag;
     if (rc == 0) {
 	rc = TSS_TPM_PUBKEY_Unmarshalu(&target->publicPortion, buffer, size);
     }
@@ -605,7 +605,7 @@ TPM_RC
 TSS_PcrRead12_Out_Unmarshalu(PcrRead12_Out *target, TPM_ST tag, BYTE **buffer, uint32_t *size)
 {
     TPM_RC rc = 0;
-    tag = tag;
+    (void) tag;
     if (rc == 0) {
 	rc = TSS_Array_Unmarshalu(target->outDigest, SHA1_DIGEST_SIZE, buffer, size);
     }
@@ -616,7 +616,7 @@ TPM_RC
 TSS_Quote2_Out_Unmarshalu(Quote2_Out *target, TPM_ST tag, BYTE **buffer, uint32_t *size)
 {
     TPM_RC rc = 0;
-    tag = tag;
+    (void) tag;
     if (rc == 0) {
     	rc = TSS_TPM_PCR_INFO_SHORT_Unmarshalu(&target->pcrData, buffer, size);
     }
@@ -644,7 +644,7 @@ TPM_RC
 TSS_Sign12_Out_Unmarshalu(Sign12_Out *target, TPM_ST tag, BYTE **buffer, uint32_t *size)
 {
     TPM_RC rc = 0;
-    tag = tag;
+    (void) tag;
     if (rc == 0) {
 	rc = TSS_UINT32_Unmarshalu(&target->sigSize, buffer, size);
     }
@@ -663,7 +663,7 @@ TPM_RC
 TSS_ReadPubek_Out_Unmarshalu(ReadPubek_Out *target, TPM_ST tag, BYTE **buffer, uint32_t *size)
 {
     TPM_RC rc = 0;
-    tag = tag;
+    (void) tag;
     if (rc == 0) {
     	rc = TSS_TPM_PUBKEY_Unmarshalu(&target->pubEndorsementKey, buffer, size);
     }
@@ -677,7 +677,7 @@ TPM_RC
 TSS_TakeOwnership_Out_Unmarshalu(TakeOwnership_Out *target, TPM_ST tag, BYTE **buffer, uint32_t *size)
 {
     TPM_RC rc = 0;
-    tag = tag;
+    (void) tag;
     if (rc == 0) {
     	rc = TSS_TPM_KEY12_Unmarshalu(&target->srkPub, buffer, size);
     }

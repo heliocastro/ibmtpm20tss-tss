@@ -2130,7 +2130,7 @@ TPM_RC processValidatePrimary(uint8_t *publicKeyBin,		/* from certificate */
 {
     TPM_RC			rc = 0;
 
-    print = print;
+    (void) print;
     /* compare the X509 certificate public key to the createprimary public key */
     switch (ekCertIndex) {
 #ifndef TPM_TSS_NORSA

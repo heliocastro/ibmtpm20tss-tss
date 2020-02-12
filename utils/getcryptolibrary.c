@@ -50,8 +50,8 @@ int main(int argc, char *argv[])
     TPM_RC		rc = 0;
     const char 		*name = NULL;
 
-    argc = argc;
-    argv = argv;
+    (void) argc;
+    (void) argv;
     
     getCryptoLibrary(&name);
     printf("%s\n", name);

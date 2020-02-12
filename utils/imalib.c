@@ -192,7 +192,7 @@ static void IMA_Event_ParseName(ImaEvent *imaEvent)
 void IMA_TemplateData_Trace(ImaTemplateData *imaTemplateData,
 			    unsigned int nameInt)
 {
-    nameInt = nameInt;	/* obsolete now that custom templates are supported */
+    (void) nameInt;	/* obsolete now that custom templates are supported */
     
     printf("IMA_TemplateData_Trace: hashLength %u\n", imaTemplateData->hashLength); 
     printf("IMA_TemplateData_Trace: hashAlg %s\n", imaTemplateData->hashAlg);
@@ -764,7 +764,7 @@ static uint32_t IMA_ParseD(ImaTemplateData	*imaTemplateData,
 			   int 			littleEndian)
 {
     uint32_t 	rc = 0;
-    littleEndian = littleEndian;	/* unised */
+    (void) littleEndian;	/* unused */
     /* fileDataHash */
     if (rc == 0) {
 	/* bounds check the length */

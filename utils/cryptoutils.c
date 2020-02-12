@@ -672,7 +672,7 @@ TPM_RC convertEcPublicKeyBinToPublic(TPM2B_PUBLIC 		*objectPublic,
 {
     TPM_RC 		rc = 0;
 
-    scheme = scheme;	/* scheme parameter not supported yet */
+    (void) scheme;	/* scheme parameter not supported yet */
     if (rc == 0) {
 	if (modulusBytes != 65) {	/* 1 for compression + 32 + 32 */
 	    printf("convertEcPublicKeyBinToPublic: public modulus expected 65 bytes, actual %u\n",

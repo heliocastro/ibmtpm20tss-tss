@@ -522,8 +522,8 @@ static TPM_RC printResponse(unsigned int idx, GetCapability12_In *in, GetCapabil
 static TPM_RC responseBool(GetCapability12_In *in, GetCapability12_Out *out)
 {
     TPM_RC rc = 0;
-    in = in;
-    out = out;
+    (void) in;
+    (void) out;
     printf("boolean: %u\n", out->resp[0]);
     return rc;
 }
@@ -590,7 +590,7 @@ static TPM_RC responseFlag(GetCapability12_In *in, GetCapability12_Out *out)
 static TPM_RC responseVersion(GetCapability12_In *in, GetCapability12_Out *out)
 {
     TPM_RC rc = 0;
-    in = in;
+    (void) in;
     TPM_STRUCT_VER *sv = (TPM_STRUCT_VER *)out->resp;	/* just bytes */
     printf("TPM_CAP_VERSION: major %02x\n", sv->major);
     printf("TPM_CAP_VERSION: minor %02x\n", sv->minor);
@@ -716,7 +716,7 @@ static TPM_RC responseNvList(GetCapability12_In *in, GetCapability12_Out *out)
     TPM_RC rc = 0;
     uint16_t i;
     uint32_t count = (out->respSize / sizeof(uint32_t));
-    in = in;
+    (void) in;
 
     printf("responseNvList: count %u\n", count);
     for (i = 0 ; i < count ; i++) {
@@ -732,7 +732,7 @@ static TPM_RC responseNvIndex(GetCapability12_In *in, GetCapability12_Out *out)
     TPM_NV_DATA_PUBLIC 	ndp;
     uint8_t 		*buffer = out->resp;
     uint32_t 		size = out->respSize;
-    in = in;
+    (void) in;
 
     if (rc == 0) {
 	rc = TSS_TPM_NV_DATA_PUBLIC_Unmarshalu(&ndp, &buffer, &size);
@@ -757,7 +757,7 @@ static TPM_RC responseHandleList(GetCapability12_In *in, GetCapability12_Out *ou
     TPM_RC rc = 0;
     uint16_t i;
     uint16_t count;
-    in = in;
+    (void) in;
 
     count = ntohs(*(uint16_t *)(out->resp));
     printf("responseHandleList: count %u\n", count);
@@ -772,7 +772,7 @@ static TPM_RC responseHandleList(GetCapability12_In *in, GetCapability12_Out *ou
 static TPM_RC responseDaLogic(GetCapability12_In *in, GetCapability12_Out *out)
 {
     TPM_RC rc = 0;
-    in = in;
+    (void) in;
     uint8_t 		*buffer;
     uint32_t 		size;
 
@@ -851,7 +851,7 @@ static TPM_RC responseDaLogic(GetCapability12_In *in, GetCapability12_Out *out)
 static TPM_RC responseVersionVal(GetCapability12_In *in, GetCapability12_Out *out)
 {
     TPM_RC rc = 0;
-    in = in;
+    (void) in;
     TPM_CAP_VERSION_INFO vi;
     if (rc == 0) {
 	uint8_t *buffer = out->resp;

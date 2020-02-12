@@ -54,7 +54,7 @@ TPM_RC
 ActivateIdentity_In_Unmarshal(ActivateIdentity_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = 0;
-    handles = handles;
+    (void) handles;
 
     if (rc == 0) {
 	target->idKeyHandle = handles[0];
@@ -83,7 +83,7 @@ TPM_RC
 CreateEndorsementKeyPair_In_Unmarshal(CreateEndorsementKeyPair_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = 0;
-    handles = handles;
+    (void) handles;
 
     if (rc == 0) {
 	rc = TSS_Array_Unmarshalu(target->antiReplay, TPM_NONCE_SIZE, buffer, size);	
@@ -104,7 +104,7 @@ TPM_RC
 CreateWrapKey_In_Unmarshal(CreateWrapKey_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = 0;
-
+(void) handles;
     if (rc == 0) {
 	target->parentHandle = handles[0];
     }
@@ -165,7 +165,7 @@ TPM_RC
 GetCapability12_In_Unmarshal(GetCapability12_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = 0;
-    handles = handles;
+    (void) handles;
     if (rc == 0) {
 	rc = TSS_UINT32_Unmarshalu(&target->capArea, buffer, size);	
 	if (rc != 0) {	
@@ -213,7 +213,7 @@ TPM_RC
 MakeIdentity_In_Unmarshal(MakeIdentity_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = 0;
-    handles = handles;
+    (void) handles;
 
     if (rc == 0) {
 	rc = TSS_Array_Unmarshalu(target->identityAuth, SHA1_DIGEST_SIZE, buffer, size);	
@@ -240,7 +240,7 @@ TPM_RC
 NV_DefineSpace12_In_Unmarshal(NV_DefineSpace12_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = 0;
-    handles = handles;
+    (void) handles;
 
     if (rc == 0) {
 	rc = TSS_TPM_NV_DATA_PUBLIC_Unmarshalu(&target->pubInfo, buffer, size);	
@@ -375,7 +375,7 @@ TPM_RC
 OSAP_In_Unmarshal(OSAP_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = 0;
-    handles = handles;
+    (void) handles;
 
     if (rc == 0) {
 	rc = TSS_UINT16_Unmarshalu(&target->entityType, buffer, size);	
@@ -402,7 +402,7 @@ TPM_RC
 OwnerSetDisable_In_Unmarshal(OwnerSetDisable_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = 0;
-    handles = handles;
+    (void) handles;
 
     if (rc == 0) {
 	rc = TSS_UINT8_Unmarshalu(&target->disableState, buffer, size);	
@@ -417,7 +417,7 @@ TPM_RC
 OwnerReadInternalPub_In_Unmarshal(OwnerReadInternalPub_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = 0;
-    handles = handles;
+    (void) handles;
     if (rc == 0) {
 	rc = TSS_UINT32_Unmarshalu(&target->keyHandle , buffer, size);	
 	if (rc != 0) {	
@@ -431,8 +431,8 @@ TPM_RC
 PcrRead12_In_Unmarshal(PcrRead12_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = 0;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == 0) {
 	target->pcrIndex = handles[0];
@@ -444,7 +444,7 @@ TPM_RC
 PCR_Reset12_In_Unmarshal(PCR_Reset12_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = 0;
-    handles = handles;
+    (void) handles;
 
     if (rc == 0) {
     	rc = TSS_TPM_PCR_SELECTION_Unmarshalu(&target->pcrSelection, buffer, size);
@@ -488,7 +488,7 @@ TPM_RC
 ReadPubek_In_Unmarshal(ReadPubek_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = 0;
-    handles = handles;
+    (void) handles;
 
     if (rc == 0) {
 	rc = TSS_Array_Unmarshalu(target->antiReplay, TPM_NONCE_SIZE, buffer, size);	
@@ -531,7 +531,7 @@ TPM_RC
 Startup12_In_Unmarshal(Startup12_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = 0;
-    handles = handles;
+    (void) handles;
 
     if (rc == 0) {
 	rc = TSS_TPM_STARTUP_TYPE_Unmarshalu(&target->startupType, buffer, size);	
@@ -546,7 +546,7 @@ TPM_RC
 TakeOwnership_In_Unmarshal(TakeOwnership_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = 0;
-    handles = handles;
+    (void) handles;
 
    if (rc == 0) {
 	rc = TSS_UINT16_Unmarshalu(&target->protocolID, buffer, size);	
