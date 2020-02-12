@@ -64,10 +64,29 @@ target_compile_definitions(ibmtss
         $<$<BOOL:${CONFIG_TSS_NOCRYPTO}>:TPM_TSS_NOCRYPTO>
 )
 
+target_compile_options(ibmtss
+    PUBLIC
+        $<$<OR:${UNIX},${MINGW}>:-Wall>
+        $<$<OR:${UNIX},${MINGW}>:-Werror>
+        $<$<OR:${UNIX},${MINGW}>:-Wmissing-declarations>
+        $<$<OR:${UNIX},${MINGW}>:-Wmissing-prototypes>
+        $<$<OR:${UNIX},${MINGW}>:-Wsign-compare>
+        $<$<OR:${UNIX},${MINGW}>:-Wnested-externs>
+        $<$<BOOL:${MSVC}>:/W3>
+)
+
+target_link_options(ibmtss
+    PUBLIC
+        $<$<OR:${UNIX},${MINGW}>:-Wl,--no-undefined>
+)
+
 target_link_libraries(ibmtss
     PUBLIC
         OpenSSL::Crypto
+        $<$<BOOL:${WIN32}>:crypt32>
 )
+
+string(APPEND CMAKE_SHARED_LINKER_FLAGS " -Wl,--no-undefined")
 
 target_include_directories(ibmtss
     PUBLIC
@@ -88,7 +107,7 @@ install(EXPORT ibmtss-targets
     FILE
         ibmtssTargets.cmake
     NAMESPACE
-        ibmss::
+        ibmtpm::
     DESTINATION
         ${CMAKE_INSTALL_LIBDIR}/cmake/ibmtss
 )
@@ -121,6 +140,22 @@ target_compile_definitions(ibmtssutils
         $<$<BOOL:${CONFIG_TPM12}>:TPM_TPM12>
 )
 
+target_compile_options(ibmtssutils
+    PUBLIC
+        $<$<OR:${UNIX},${MINGW}>:-Wall>
+        $<$<OR:${UNIX},${MINGW}>:-Werror>
+        $<$<OR:${UNIX},${MINGW}>:-Wmissing-declarations>
+        $<$<OR:${UNIX},${MINGW}>:-Wmissing-prototypes>
+        $<$<OR:${UNIX},${MINGW}>:-Wsign-compare>
+        $<$<OR:${UNIX},${MINGW}>:-Wnested-externs>
+        $<$<BOOL:${MSVC}>:/W3>
+)
+
+target_link_options(ibmtssutils
+    PUBLIC
+        $<$<OR:${UNIX},${MINGW}>:-Wl,--no-undefined>
+)
+
 target_link_libraries(ibmtssutils
     PUBLIC
         ibmtss
@@ -130,6 +165,8 @@ install(TARGETS ibmtssutils
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
+
+# Utilities Binaries
 
 add_tss_binary(activatecredential SOURCES activatecredential.c)
 add_tss_binary(eventextend SOURCES eventextend.c)
