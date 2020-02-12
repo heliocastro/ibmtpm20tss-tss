@@ -66,23 +66,27 @@ target_compile_definitions(ibmtss
 
 target_compile_options(ibmtss
     PUBLIC
-        $<$<OR:${UNIX},${MINGW}>:-Wall>
-        $<$<OR:${UNIX},${MINGW}>:-Werror>
-        $<$<OR:${UNIX},${MINGW}>:-Wmissing-declarations>
-        $<$<OR:${UNIX},${MINGW}>:-Wmissing-prototypes>
-        $<$<OR:${UNIX},${MINGW}>:-Wsign-compare>
-        $<$<OR:${UNIX},${MINGW}>:-Wnested-externs>
+        $<$<BOOL:${UNIX}>:-Wall>
+        $<$<BOOL:${UNIX}>:-Werror>
+        $<$<BOOL:${UNIX}>:-Wmissing-declarations>
+        $<$<BOOL:${UNIX}>:-Wmissing-prototypes>
+        $<$<BOOL:${UNIX}>:-Wsign-compare>
+        $<$<BOOL:${UNIX}>:-Wnested-externs>
         $<$<BOOL:${MSVC}>:/W3>
 )
 
-target_link_options(ibmtss
-    PUBLIC
-        $<$<OR:${UNIX},${MINGW}>:-Wl,--no-undefined>
-)
+if(UNIX OR MINGW)
+    target_link_options(ibmtss
+        PUBLIC
+            -Wl,--no-undefined
+    )
+endif()
 
 target_link_libraries(ibmtss
     PUBLIC
         OpenSSL::Crypto
+        $<$<BOOL:${WIN32}>:wsock32>
+        $<$<BOOL:${WIN32}>:ws2_32>
         $<$<BOOL:${WIN32}>:crypt32>
 )
 
@@ -138,22 +142,6 @@ target_compile_definitions(ibmtssutils
     PRIVATE
         $<$<BOOL:${CONFIG_TPM20}>:TPM_TPM20>
         $<$<BOOL:${CONFIG_TPM12}>:TPM_TPM12>
-)
-
-target_compile_options(ibmtssutils
-    PUBLIC
-        $<$<OR:${UNIX},${MINGW}>:-Wall>
-        $<$<OR:${UNIX},${MINGW}>:-Werror>
-        $<$<OR:${UNIX},${MINGW}>:-Wmissing-declarations>
-        $<$<OR:${UNIX},${MINGW}>:-Wmissing-prototypes>
-        $<$<OR:${UNIX},${MINGW}>:-Wsign-compare>
-        $<$<OR:${UNIX},${MINGW}>:-Wnested-externs>
-        $<$<BOOL:${MSVC}>:/W3>
-)
-
-target_link_options(ibmtssutils
-    PUBLIC
-        $<$<OR:${UNIX},${MINGW}>:-Wl,--no-undefined>
 )
 
 target_link_libraries(ibmtssutils
