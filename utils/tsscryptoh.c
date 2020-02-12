@@ -614,8 +614,9 @@ void TSS_XOR(unsigned char *out,
 uint16_t TSS_Sym_GetBlockSize(TPM_ALG_ID	symmetricAlg, 
 			      uint16_t		keySizeInBits)
 {
-    keySizeInBits = keySizeInBits;
+    (void) keySizeInBits;
     
+
     switch (symmetricAlg) {
 #ifdef TPM_ALG_AES
       case TPM_ALG_AES:

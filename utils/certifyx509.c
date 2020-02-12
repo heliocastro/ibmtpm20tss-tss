@@ -603,7 +603,7 @@ TPM_RC createPartialCertificate(X509 *x509Certificate,			/* input / output */
     uint32_t 	certificateDerLength = 0;
     uint8_t 	*certificateDer = NULL;
 
-    partialCertificateDerSize = partialCertificateDerSize;	/* FIXME needs size check */
+    (void) partialCertificateDerSize;	/* FIXME needs size check */
 
     /* add certificate version X509 v3 */
     if (rc == 0) {
@@ -799,7 +799,7 @@ TPM_RC convertCertToPartialCert(uint16_t *partialCertificateDerLength,
     uint16_t 	certificateDerIndex = 0;	/* index into the DER input */
     
     
-    certificateDerLength = certificateDerLength; 	/* FIXME for future error checking */
+    (void) certificateDerLength; 	/* FIXME for future error checking */
     *partialCertificateDerLength = 0;			/* updates on each call */
     
     /* skip the outer SEQUENCE wrapper */
@@ -1076,7 +1076,9 @@ TPM_RC addPubKeyEcc(X509 		*x509Certificate,
 	memcpy(tpmsEccPoint.y.t.buffer, tmpAddedToCert +  *tmpAddedToCertIndex, 32);	
 	*tmpAddedToCertIndex += 32;
 
+	#ifndef TPM_TSS_NOECC
 	rc = addCertKeyEcc(x509Certificate, &tpmsEccPoint);
+	#endif
     }
     return rc;
 }

@@ -304,7 +304,7 @@ static TPM_RC printResponse(TPMS_CAPABILITY_DATA *capabilityData, uint32_t prope
 static TPM_RC responseCapability(TPMS_CAPABILITY_DATA *capabilityData, uint32_t property)
 {
     TPM_RC			rc = 0;
-    property = property;
+    (void) property;
     printf("Cannot parse illegal response capability %08x\n", capabilityData->capability);
     rc = TPM_RC_VALUE;
     return rc;
@@ -315,7 +315,7 @@ static TPM_RC responseAlgs(TPMS_CAPABILITY_DATA *capabilityData, uint32_t proper
     TPM_RC	rc = 0;
     uint32_t	count;
     TPML_ALG_PROPERTY *algorithms = (TPML_ALG_PROPERTY *)&(capabilityData->data);
-    property = property;
+    (void) property;
 
     printf("%u algorithms \n", algorithms->count);
     for (count = 0 ; count < algorithms->count ; count++) {
@@ -331,7 +331,7 @@ static TPM_RC responseHandles(TPMS_CAPABILITY_DATA *capabilityData, uint32_t pro
     TPM_RC	rc = 0;
     uint32_t	count;
     TPML_HANDLE	*handles = (TPML_HANDLE *)&(capabilityData->data);
-    property = property;
+    (void) property;
 
     printf("%u handles\n", handles->count);
     for (count = 0 ; count < handles->count ; count++) {
@@ -345,7 +345,7 @@ static TPM_RC responseCommands(TPMS_CAPABILITY_DATA *capabilityData, uint32_t pr
     TPM_RC	rc = 0;
     uint32_t	count;
     TPML_CCA	*command = (TPML_CCA *)&(capabilityData->data);
-    property = property;
+    (void) property;
 
     printf("%u commands\n", command->count);
     for (count = 0 ; count < command->count ; count++) {
@@ -359,7 +359,7 @@ static TPM_RC responsePpCommands(TPMS_CAPABILITY_DATA *capabilityData, uint32_t 
     TPM_RC	rc = 0;
     uint32_t	count;
     TPML_CC	*command = (TPML_CC *)&(capabilityData->data);
-    property = property;
+    (void) property;
 
     printf("%u commands\n", command->count);
     for (count = 0 ; count < command->count ; count++) {
@@ -373,7 +373,7 @@ static TPM_RC responseAuditCommands(TPMS_CAPABILITY_DATA *capabilityData, uint32
     TPM_RC	rc = 0;
     uint32_t	count;
     TPML_CC	*command = (TPML_CC *)&(capabilityData->data);
-    property = property;
+    (void) property;
 
     printf("%u commands\n", command->count);
     for (count = 0 ; count < command->count ; count++) {
@@ -387,7 +387,7 @@ static TPM_RC responsePcrs(TPMS_CAPABILITY_DATA *capabilityData, uint32_t proper
     TPM_RC	rc = 0;
     uint32_t	count;
     TPML_PCR_SELECTION *pcrSelection = (TPML_PCR_SELECTION *)&(capabilityData->data);
-    property = property;
+    (void) property;
 
     printf("%u PCR selections\n", pcrSelection->count);
     for (count = 0 ; count < pcrSelection->count ; count++) {
@@ -495,7 +495,7 @@ static TPM_RC responseTpmProperties(TPMS_CAPABILITY_DATA *capabilityData, uint32
     TPM_RC		rc = 0;
     uint32_t		count;
     TPML_TAGGED_TPM_PROPERTY *tpmProperties = (TPML_TAGGED_TPM_PROPERTY *)&(capabilityData->data);
-    property = property;
+    (void) property;
 
     printf("%u properties\n", tpmProperties->count);
     for (count = 0 ; count < tpmProperties->count ; count++) {
@@ -639,7 +639,7 @@ static TPM_RC responsePcrProperties(TPMS_CAPABILITY_DATA *capabilityData, uint32
     TPM_RC		rc = 0;
     uint32_t		count;
     TPML_TAGGED_PCR_PROPERTY *pcrProperties = (TPML_TAGGED_PCR_PROPERTY *)&(capabilityData->data);
-    property = property; 
+    (void) property; 
 
     printf("%u properties\n", pcrProperties->count);
     for (count = 0 ; count < pcrProperties->count ; count++) {
@@ -674,7 +674,7 @@ static TPM_RC responseEccCurves(TPMS_CAPABILITY_DATA *capabilityData, uint32_t p
     uint32_t	count;
     TPML_ECC_CURVE *eccCurves = (TPML_ECC_CURVE *)&(capabilityData->data);
     TPM_ECC_CURVE curve;
-    property = property;
+    (void) property;
 
     printf("%u curves\n", eccCurves->count);
     for (count = 0 ; count < eccCurves->count ; count++) {
@@ -689,7 +689,7 @@ static TPM_RC responseAuthPolicies(TPMS_CAPABILITY_DATA *capabilityData, uint32_
     TPM_RC	rc = 0;
     uint32_t	count;
     TPML_TAGGED_POLICY *authPolicies = (TPML_TAGGED_POLICY *)&(capabilityData->data);
-    property = property;
+    (void) property;
 
     printf("%u authPolicies\n", authPolicies->count);
     for (count = 0 ; count < authPolicies->count ; count++) {

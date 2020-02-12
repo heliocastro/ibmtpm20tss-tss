@@ -1399,15 +1399,14 @@ TPM_RC TSS_GetRpBuffer(TSS_AUTH_CONTEXT *tssAuthContext,
     uint32_t 	parameterSize;		/* response parameter (if sessions) */
      
     /* unmarshal the response tag */
-    if (rc == 0) {
-	/* offset to parameterSize or parameters */
-	offsetSize = sizeof(TPM_ST) + sizeof (uint32_t) + sizeof(TPM_RC) +
-		     (sizeof(TPM_HANDLE) * tssAuthContext->responseHandleCount);
+    /* offset to parameterSize or parameters */
+    offsetSize = sizeof(TPM_ST) + sizeof (uint32_t) + sizeof(TPM_RC) +
+	     (sizeof(TPM_HANDLE) * tssAuthContext->responseHandleCount);
 
-	size = tssAuthContext->responseSize;
-  	buffer = tssAuthContext->responseBuffer;
-	rc = TSS_TPM_ST_Unmarshalu(&tag, &buffer, &size);	/* does value checking */
-    }
+    size = tssAuthContext->responseSize;
+    buffer = tssAuthContext->responseBuffer;
+    rc = TSS_TPM_ST_Unmarshalu(&tag, &buffer, &size);	/* does value checking */
+    
     /* no sessions -> no parameterSize */
     if (tag == TPM_ST_NO_SESSIONS) {
 	if (rc == 0) {

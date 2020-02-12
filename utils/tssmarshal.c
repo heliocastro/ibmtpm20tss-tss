@@ -4821,10 +4821,10 @@ TSS_TPMS_ENC_SCHEME_OAEP_Marshalu(const TPMS_ENC_SCHEME_OAEP *source, uint16_t *
 TPM_RC
 TSS_TPMS_ENC_SCHEME_RSAES_Marshalu(const TPMS_ENC_SCHEME_RSAES *source, uint16_t *written, BYTE **buffer, uint32_t *size)
 {
-    source = source;
-    written = written;
-    buffer = buffer;
-    size = size;
+    (void) source;
+    (void) written;
+    (void) buffer;
+    (void) size;
     return 0;
 }
 

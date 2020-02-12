@@ -694,7 +694,7 @@ TPM_RC
 TSS_TPMI_SH_HMAC_Unmarshalu(TPMI_SH_HMAC *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
     
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_HANDLE_Unmarshalu(target, buffer, size);  
@@ -714,7 +714,7 @@ TPM_RC
 TSS_TPMI_SH_POLICY_Unmarshalu(TPMI_SH_POLICY *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
     
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_HANDLE_Unmarshalu(target, buffer, size);  
@@ -735,7 +735,7 @@ TPM_RC
 TSS_TPMI_DH_CONTEXT_Unmarshalu(TPMI_DH_CONTEXT *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_HANDLE_Unmarshalu(target, buffer, size);  
@@ -759,7 +759,7 @@ TPM_RC
 TSS_TPMI_DH_SAVED_Unmarshalu(TPMI_DH_SAVED *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_HANDLE_Unmarshalu(target, buffer, size);  
@@ -845,7 +845,7 @@ TPM_RC
 TSS_TPMI_RH_HIERARCHY_AUTH_Unmarshalu(TPMI_RH_HIERARCHY_AUTH *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
     
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_HANDLE_Unmarshalu(target, buffer, size);  
@@ -870,7 +870,7 @@ TPM_RC
 TSS_TPMI_RH_PLATFORM_Unmarshalu(TPMI_RH_PLATFORM *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_HANDLE_Unmarshalu(target, buffer, size);  
@@ -918,7 +918,7 @@ TPM_RC
 TSS_TPMI_RH_PROVISION_Unmarshalu(TPMI_RH_PROVISION *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_HANDLE_Unmarshalu(target, buffer, size);  
@@ -941,7 +941,7 @@ TPM_RC
 TSS_TPMI_RH_CLEAR_Unmarshalu(TPMI_RH_CLEAR *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_HANDLE_Unmarshalu(target, buffer, size);  
@@ -964,7 +964,7 @@ TPM_RC
 TSS_TPMI_RH_NV_AUTH_Unmarshalu(TPMI_RH_NV_AUTH *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
     
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_HANDLE_Unmarshalu(target, buffer, size);  
@@ -992,7 +992,7 @@ TPM_RC
 TSS_TPMI_RH_LOCKOUT_Unmarshalu(TPMI_RH_LOCKOUT *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_HANDLE_Unmarshalu(target, buffer, size);  
@@ -1015,7 +1015,7 @@ TPM_RC
 TSS_TPMI_RH_NV_INDEX_Unmarshalu(TPMI_RH_NV_INDEX *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_HANDLE_Unmarshalu(target, buffer, size);  
@@ -1035,7 +1035,7 @@ TPM_RC
 TSS_TPMI_ALG_HASH_Unmarshalu(TPMI_ALG_HASH *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_ALG_ID_Unmarshalu(target, buffer, size);  
@@ -1049,7 +1049,7 @@ TPM_RC
 TSS_TPMI_ALG_SYM_Unmarshalu(TPMI_ALG_SYM *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_ALG_ID_Unmarshalu(target, buffer, size);  
@@ -1063,7 +1063,7 @@ TPM_RC
 TSS_TPMI_ALG_SYM_OBJECT_Unmarshalu(TPMI_ALG_SYM_OBJECT *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_ALG_ID_Unmarshalu(target, buffer, size);  
@@ -1077,7 +1077,7 @@ TPM_RC
 TSS_TPMI_ALG_SYM_MODE_Unmarshalu(TPMI_ALG_SYM_MODE *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_ALG_ID_Unmarshalu(target, buffer, size);  
@@ -1091,7 +1091,7 @@ TPM_RC
 TSS_TPMI_ALG_KDF_Unmarshalu(TPMI_ALG_KDF *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
    
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_ALG_ID_Unmarshalu(target, buffer, size);  
@@ -1105,7 +1105,7 @@ TPM_RC
 TSS_TPMI_ALG_SIG_SCHEME_Unmarshalu(TPMI_ALG_SIG_SCHEME *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_ALG_ID_Unmarshalu(target, buffer, size);  
@@ -1121,7 +1121,7 @@ TPM_RC
 TSS_TPMI_ECC_KEY_EXCHANGE_Unmarshalu(TPMI_ECC_KEY_EXCHANGE *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_ALG_ID_Unmarshalu(target, buffer, size);  
@@ -1157,7 +1157,7 @@ TPM_RC
 TSS_TPMI_ALG_MAC_SCHEME_Unmarshalu(TPMI_ALG_MAC_SCHEME *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_ALG_ID_Unmarshalu(target, buffer, size);  
@@ -1171,7 +1171,7 @@ TPM_RC
 TSS_TPMI_ALG_CIPHER_MODE_Unmarshalu(TPMI_ALG_CIPHER_MODE*target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_ALG_ID_Unmarshalu(target, buffer, size);  
@@ -1189,9 +1189,9 @@ TPM_RC
 TSS_TPMS_EMPTY_Unmarshalu(TPMS_EMPTY *target, BYTE **buffer, uint32_t *size)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    target = target;
-    buffer = buffer;
-    size = size;
+    (void) target;
+    (void) buffer;
+    (void) size;
     return rc;
 }
 
@@ -2492,7 +2492,7 @@ TPM_RC
 TSS_TPMI_ALG_KEYEDHASH_SCHEME_Unmarshalu(TPMI_ALG_KEYEDHASH_SCHEME *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_ALG_ID_Unmarshalu(target, buffer, size);  
@@ -2991,7 +2991,7 @@ TPM_RC
 TSS_TPMI_ALG_RSA_SCHEME_Unmarshalu(TPMI_ALG_RSA_SCHEME *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_ALG_ID_Unmarshalu(target, buffer, size);  
@@ -3023,7 +3023,7 @@ TPM_RC
 TSS_TPMI_ALG_RSA_DECRYPT_Unmarshalu(TPMI_ALG_RSA_DECRYPT *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_ALG_ID_Unmarshalu(target, buffer, size);  
@@ -3156,7 +3156,7 @@ TPM_RC
 TSS_TPMI_ALG_ECC_SCHEME_Unmarshalu(TPMI_ALG_ECC_SCHEME *target, BYTE **buffer, uint32_t *size, BOOL allowNull)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    allowNull = allowNull;
+    (void) allowNull;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_ALG_ID_Unmarshalu(target, buffer, size);  

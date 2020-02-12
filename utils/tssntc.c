@@ -75,7 +75,7 @@ TPM_RC
 TSS_NTC2_PreConfig_In_Unmarshalu(NTC2_PreConfig_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    handles = handles;
+    (void) handles;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_NTC2_CFG_STRUCT_Unmarshalu(&target->preConfig, buffer, size);	
@@ -100,7 +100,7 @@ TPM_RC
 TSS_NTC2_GetConfig_Out_Unmarshalu(NTC2_GetConfig_Out *target, TPM_ST tag, BYTE **buffer, uint32_t *size)
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    tag = tag;
+    (void) tag;
     
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_NTC2_CFG_STRUCT_Unmarshalu(&target->preConfig, buffer, size);

@@ -345,8 +345,8 @@ static TPM_RC TSS_Execute12_valist(TSS_CONTEXT *tssContext,
     /* TSS sessions */
     TSS_HMAC12_CONTEXT 	*session[MAX_SESSION_NUM];
 
-    in = in;
-    ap = ap;
+    (void) in;
+    (void) ap;
     
     /* Step 1: initialization */
     if (tssVverbose) printf("TSS_Execute12_valist: Step 1: initialization\n");
@@ -1026,7 +1026,7 @@ static TPM_RC TSS_Command_DecryptXor(TSS_AUTH_CONTEXT *tssAuthContext,
     TPMT_HA 		padHash;
     unsigned int	i;
 
-    tssAuthContext = tssAuthContext;
+    (void) tssAuthContext;
     /* generate the pad */
     if (rc == 0) {
 	padHash.hashAlg = TPM_ALG_SHA1;
@@ -1114,8 +1114,8 @@ static TPM_RC TSS_PR_CreateWrapKey(TSS_CONTEXT *tssContext,
 				   void *extra)
 {
     TPM_RC	rc = 0;
-    in = in;
-    extra = extra;
+    (void) in;
+    (void) extra;
     if (tssVverbose) printf("TSS_PR_CreateWrapKey\n");
     /* TPM_ENCAUTH is predictable distance from start */
     if (rc == 0) {
@@ -1148,8 +1148,8 @@ static TPM_RC TSS_PR_MakeIdentity(TSS_CONTEXT *tssContext,
 				  void *extra)
 {
     TPM_RC	rc = 0;
-    in = in;
-    extra = extra;
+    (void) in;
+    (void) extra;
     if (tssVverbose) printf("TSS_PR_MakeIdentity\n");
     /* TPM_ENCAUTH is predictable distance from start */
     if (rc == 0) {
@@ -1171,8 +1171,8 @@ static TPM_RC TSS_PR_NV_DefineSpace(TSS_CONTEXT *tssContext,
 				    void *extra)
 {
     TPM_RC	rc = 0;
-    in = in;
-    extra = extra;
+    (void) in;
+    (void) extra;
     if (tssVverbose) printf("TSS_PR_NV_DefineSpace\n");
     /* TPM_ENCAUTH is predictable distance from end */
     if (rc == 0) {
@@ -1195,8 +1195,8 @@ static TPM_RC TSS_PR_OSAP(TSS_CONTEXT *tssContext,
 			  OSAP_Extra *extra)
 {
     TPM_RC	rc = 0;
-    tssContext = tssContext;
-    extra = extra;
+    (void) tssContext;
+    (void) extra;
 
     if (tssVverbose) printf("TSS_PR_OSAP\n");
     /* generate nonceOddOSAP */
@@ -1212,8 +1212,8 @@ static TPM_RC TSS_PR_Seal(TSS_CONTEXT *tssContext,
 			  void *extra)
 {
     TPM_RC	rc = 0;
-    in = in;
-    extra = extra;
+    (void) in;
+    (void) extra;
     if (tssVverbose) printf("TSS_PR_Seal\n");
     /* TPM_ENCAUTH is predictable distance from start */
     if (rc == 0) {
@@ -1237,8 +1237,8 @@ static TPM_RC TSS_PR_Sealx(TSS_CONTEXT *tssContext,
 			   void *extra)
 {
     TPM_RC	rc = 0;
-    in = in;
-    extra = extra;
+    (void) in;
+    (void) extra;
     if (tssVverbose) printf("TSS_PR_Sealx\n");
     /* TPM_ENCAUTH is predictable distance from start */
     if (rc == 0) {
@@ -1311,8 +1311,8 @@ static TPM_RC TSS_PO_FlushSpecific(TSS_CONTEXT *tssContext,
 				   void *extra)
 {
     TPM_RC	rc = 0;
-    out = out;
-    extra = extra;
+    (void) out;
+    (void) extra;
     if (tssVverbose) printf("TSS_PO_FlushSpecific: handle %08x\n", in->handle);
     if ((rc == 0) && (in->resourceType == TPM_RT_AUTH)) {
 	rc = TSS_HmacSession12_DeleteSession(tssContext, in->handle);
@@ -1328,8 +1328,8 @@ static TPM_RC TSS_PO_OIAP(TSS_CONTEXT *tssContext,
     TPM_RC 		rc = 0;
     TSS_HMAC12_CONTEXT 	*session = NULL;
 
-    in = in;
-    extra = extra;
+    (void) in;
+    (void) extra;
     /* allocate a TSS_HMAC_CONTEXT session context */
     if (rc == 0) {
 	rc = TSS_HmacSession12_GetContext(&session);

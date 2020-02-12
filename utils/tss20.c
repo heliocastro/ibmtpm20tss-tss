@@ -959,7 +959,7 @@ static TPM_RC TSS_Execute_valist(TSS_CONTEXT *tssContext,
 						authR[i]);	/* input: response authorization */
 		}
 #else
-		in = in;
+		(void) in;
 		if (tssVerbose)
 		    printf("TSS_Execute_valist: "
 			   "Error, HMAC verify with no crypto not implemented\n");
@@ -3730,7 +3730,7 @@ static TPM_RC TSS_CA_NV_UndefineSpaceSpecial(TSS_CONTEXT *tssContext,
 {
     TPM_RC 		rc = 0;
     
-    in = in;
+    (void) in;
     if (tssVverbose) printf("TSS_CA_NV_UndefineSpaceSpecial\n");
 #ifndef TPM_TSS_NOCRYPTO
     if (rc == 0) {
@@ -3994,8 +3994,8 @@ static TPM_RC TSS_PR_NV_DefineSpace(TSS_CONTEXT *tssContext,
 				    void *extra)
 {
     TPM_RC 	rc = 0;
-    tssContext = tssContext;
-    extra = extra;
+    (void) tssContext;
+    (void) extra;
 
     if (tssVverbose) printf("TSS_PR_NV_DefineSpace\n");
     /* Test that TPMA_NVA_POLICY_DELETE is only set when a policy is also set.  Otherwise, the index
@@ -4153,8 +4153,8 @@ static TPM_RC TSS_PO_ContextSave(TSS_CONTEXT *tssContext,
     int			done = FALSE;
 #endif
 
-    in = in;
-    extra = extra;
+    (void) in;
+    (void) extra;
 
 #ifndef TPM_TSS_NOFILE
     if (tssVverbose) printf("TSS_PO_ContextSave: handle %08x\n", in->saveHandle);
@@ -4191,7 +4191,7 @@ static TPM_RC TSS_PO_ContextSave(TSS_CONTEXT *tssContext,
     }
 #else
     tssContext = tssContext;
-    out = out;
+    (void) out;
 #endif
     return rc;
 }
@@ -4209,8 +4209,8 @@ static TPM_RC TSS_PO_ContextLoad(TSS_CONTEXT *tssContext,
     int			done = FALSE;
 #endif
 
-    out = out;
-    extra = extra;
+    (void) out;
+    (void) extra;
 
 #ifndef TPM_TSS_NOFILE
     if (tssVverbose) printf("TSS_PO_ContextLoad: handle %08x\n", out->loadedHandle);
@@ -4249,7 +4249,7 @@ static TPM_RC TSS_PO_ContextLoad(TSS_CONTEXT *tssContext,
     }
 #else
     tssContext = tssContext;
-    in = in; 
+    (void) in; 
 #endif
     return rc;
 }
@@ -4285,8 +4285,8 @@ static TPM_RC TSS_PO_FlushContext(TSS_CONTEXT *tssContext,
 {
     TPM_RC 			rc = 0;
 
-    out = out;
-    extra = extra;
+    (void) out;
+    (void) extra;
     if (tssVverbose) printf("TSS_PO_FlushContext: flushHandle %08x\n", in->flushHandle);
     if (rc == 0) {
 	rc = TSS_DeleteHandle(tssContext, in->flushHandle);
@@ -4303,8 +4303,8 @@ static TPM_RC TSS_PO_EvictControl(TSS_CONTEXT *tssContext,
 {
     TPM_RC 			rc = 0;
 
-    out = out;
-    extra = extra;
+    (void) out;
+    (void) extra;
     
     if (tssVverbose) printf("TSS_PO_EvictControl: object %08x persistent %08x\n",
 			    in->objectHandle, in->persistentHandle);
@@ -4344,8 +4344,8 @@ static TPM_RC TSS_PO_Load(TSS_CONTEXT *tssContext,
 {
     TPM_RC 	rc = 0;
 
-    in = in;
-    extra = extra;
+    (void) in;
+    (void) extra;
     if (tssVverbose) printf("TSS_PO_Load: handle %08x\n", out->objectHandle);
     /* use handle as file name */
     if (rc == 0) {
@@ -4366,8 +4366,8 @@ static TPM_RC TSS_PO_LoadExternal(TSS_CONTEXT *tssContext,
 {
     TPM_RC 	rc = 0;
 
-    in = in;
-    extra = extra;
+    (void) in;
+    (void) extra;
     if (tssVverbose) printf("TSS_PO_LoadExternal: handle %08x\n", out->objectHandle);
     /* use handle as file name */
     if (rc == 0) {
@@ -4388,8 +4388,8 @@ static TPM_RC TSS_PO_ReadPublic(TSS_CONTEXT *tssContext,
 {
     TPM_RC 	rc = 0;
 
-    in = in;
-    extra = extra;
+    (void) in;
+    (void) extra;
     if (tssVverbose) printf("TSS_PO_ReadPublic: handle %08x\n", in->objectHandle);
     /* if the TSS is compiled without crypto support, it cannot recalculate the Name from the public
        area. It has to trust the response from the TPM.  This should be OK since a 'no crypto' TSS
@@ -4444,8 +4444,8 @@ static TPM_RC TSS_PO_CreateLoaded(TSS_CONTEXT *tssContext,
 {
     TPM_RC 	rc = 0;
 
-    in = in;
-    extra = extra;
+    (void) in;
+    (void) extra;
     if (tssVverbose) printf("TSS_PO_CreateLoaded: handle %08x\n", out->objectHandle);
     /* use handle as file name */
     if (rc == 0) {
@@ -4467,8 +4467,8 @@ static TPM_RC TSS_PO_HashSequenceStart(TSS_CONTEXT *tssContext,
     TPM_RC 	rc = 0;
     TPM2B_NAME 	name;
 
-    in = in;
-    extra = extra;
+    (void) in;
+    (void) extra;
 
     if (tssVverbose) printf("TSS_PO_HashSequenceStart\n");
     /* Part 1 Table 3 The Name of a sequence object is an Empty Buffer */
@@ -4491,8 +4491,8 @@ static TPM_RC TSS_PO_HMAC_Start(TSS_CONTEXT *tssContext,
     TPM_RC 	rc = 0;
     TPM2B_NAME 	name;
 
-    in = in;
-    extra = extra;
+    (void) in;
+    (void) extra;
 
     if (tssVverbose) printf("TSS_PO_HMAC_Start\n");
     /* Part 1 Table 3 The Name of a sequence object is an Empty Buffer */
@@ -4511,8 +4511,8 @@ static TPM_RC TSS_PO_SequenceComplete(TSS_CONTEXT *tssContext,
 {
     TPM_RC 	rc = 0;
 
-    out = out;
-    extra = extra;
+    (void) out;
+    (void) extra;
 
     if (tssVverbose) printf("TSS_PO_SequenceComplete: sequenceHandle %08x\n", in->sequenceHandle);
     if (rc == 0) {
@@ -4526,8 +4526,8 @@ static TPM_RC TSS_PO_EventSequenceComplete(TSS_CONTEXT *tssContext,
 					   void *extra)
 {
     TPM_RC 	rc = 0;
-    out = out;
-    extra = extra;
+    (void) out;
+    (void) extra;
     if (tssVverbose)
 	printf("TSS_PO_EventSequenceComplete: sequenceHandle %08x\n", in->sequenceHandle);
     if (rc == 0) {
@@ -4544,8 +4544,8 @@ static TPM_RC TSS_PO_PolicyAuthValue(TSS_CONTEXT *tssContext,
     TPM_RC 			rc = 0;
     struct TSS_HMAC_CONTEXT 	*session = NULL;
     
-    out = out;
-    extra = extra;
+    (void) out;
+    (void) extra;
     if (tssVverbose) printf("TSS_PO_PolicyAuthValue\n");
     if (rc == 0) {
 	rc = TSS_Malloc((unsigned char **)&session, sizeof(TSS_HMAC_CONTEXT));	/* freed @1 */
@@ -4570,8 +4570,8 @@ static TPM_RC TSS_PO_PolicyPassword(TSS_CONTEXT *tssContext,
     TPM_RC 			rc = 0;
     struct TSS_HMAC_CONTEXT 	*session = NULL;
 
-    out = out;
-    extra = extra;
+    (void) out;
+    (void) extra;
     if (tssVverbose) printf("TSS_PO_PolicyPassword\n");
     if (rc == 0) {
 	rc = TSS_Malloc((unsigned char **)&session, sizeof(TSS_HMAC_CONTEXT));	/* freed @1 */
@@ -4595,8 +4595,8 @@ static TPM_RC TSS_PO_CreatePrimary(TSS_CONTEXT *tssContext,
 {
     TPM_RC 			rc = 0;
 
-    in = in;
-    extra = extra;
+    (void) in;
+    (void) extra;
     if (tssVverbose) printf("TSS_PO_CreatePrimary: handle %08x\n", out->objectHandle);
     /* use handle as file name */
     if (rc == 0) {
@@ -4641,10 +4641,10 @@ static TPM_RC TSS_PO_NV_DefineSpace(TSS_CONTEXT *tssContext,
     }
 #else
     tssContext = tssContext;
-    in = in;
+    (void) in;
 #endif
-    out = out;
-    extra = extra;
+    (void) out;
+    (void) extra;
     return rc;
 }
 
@@ -4698,10 +4698,10 @@ static TPM_RC TSS_PO_NV_ReadPublic(TSS_CONTEXT *tssContext,
     }
 #else
     tssContext = tssContext;
-    in = in;
-    out = out;
+    (void) in;
+    (void) out;
 #endif
-    extra = extra;
+    (void) extra;
     return rc;
 }
 
@@ -4712,8 +4712,8 @@ static TPM_RC TSS_PO_NV_UndefineSpace(TSS_CONTEXT *tssContext,
 {
     TPM_RC 			rc = 0;
 
-    out = out;
-    extra = extra;
+    (void) out;
+    (void) extra;
     if (tssVverbose) printf("TSS_PO_NV_UndefineSpace\n");
 #ifndef TPM_TSS_NOCRYPTO
     /* Don't check return code. */
@@ -4721,7 +4721,7 @@ static TPM_RC TSS_PO_NV_UndefineSpace(TSS_CONTEXT *tssContext,
     TSS_NVPublic_Delete(tssContext, in->nvIndex);
 #else
     tssContext = tssContext;
-    in = in;
+    (void) in;
 #endif
     return rc;
 }
@@ -4733,8 +4733,8 @@ static TPM_RC TSS_PO_NV_UndefineSpaceSpecial(TSS_CONTEXT *tssContext,
 {
     TPM_RC 			rc = 0;
 
-    out = out;
-    extra = extra;
+    (void) out;
+    (void) extra;
     if (tssVverbose) printf("TSS_PO_NV_UndefineSpaceSpecial\n");
     /* Don't check return code.  The name will only exist if NV_ReadPublic has been issued */
     TSS_DeleteHandle(tssContext, in->nvIndex);
@@ -4788,10 +4788,10 @@ static TPM_RC TSS_PO_NV_Write(TSS_CONTEXT *tssContext,
     }
 #else
     tssContext = tssContext;
-    in = in;
+    (void) in;
 #endif
-    out = out;
-    extra = extra;
+    (void) out;
+    (void) extra;
     return rc;
 }
 
@@ -4840,10 +4840,10 @@ static TPM_RC TSS_PO_NV_WriteLock(TSS_CONTEXT *tssContext,
     }
 #else
     tssContext = tssContext;
-    in = in;
+    (void) in;
 #endif
-    out = out;
-    extra = extra;
+    (void) out;
+    (void) extra;
     return rc;
 }
 
@@ -4892,10 +4892,10 @@ static TPM_RC TSS_PO_NV_ReadLock(TSS_CONTEXT *tssContext,
     }
 #else
     tssContext = tssContext;
-    in = in;
+    (void) in;
 #endif
-    out = out;
-    extra = extra;
+    (void) out;
+    (void) extra;
     return rc;
 }
 

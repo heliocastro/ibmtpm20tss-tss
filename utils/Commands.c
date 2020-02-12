@@ -79,7 +79,7 @@ TPM_RC
 Startup_In_Unmarshal(Startup_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    handles = handles;
+    (void) handles;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_SU_Unmarshalu(&target->startupType, buffer, size);	
@@ -93,7 +93,7 @@ TPM_RC
 Shutdown_In_Unmarshal(Shutdown_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    handles = handles;
+    (void) handles;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_SU_Unmarshalu(&target->shutdownType, buffer, size);
@@ -107,7 +107,7 @@ TPM_RC
 SelfTest_In_Unmarshal(SelfTest_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    handles = handles;
+    (void) handles;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPMI_YES_NO_Unmarshalu(&target->fullTest, buffer, size);
@@ -121,7 +121,7 @@ TPM_RC
 IncrementalSelfTest_In_Unmarshal(IncrementalSelfTest_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    handles = handles;
+    (void) handles;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPML_ALG_Unmarshalu(&target->toTest, buffer, size);
@@ -176,8 +176,8 @@ TPM_RC
 PolicyRestart_In_Unmarshal(PolicyRestart_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
     
     if (rc == TPM_RC_SUCCESS) {
 	target->sessionHandle = handles[0];
@@ -244,7 +244,7 @@ TPM_RC
 LoadExternal_In_Unmarshal(LoadExternal_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    handles = handles;
+    (void) handles;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM2B_SENSITIVE_Unmarshalu(&target->inPrivate, buffer, size);
@@ -271,8 +271,8 @@ TPM_RC
 ReadPublic_In_Unmarshal(ReadPublic_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->objectHandle = handles[0];
@@ -328,8 +328,8 @@ TPM_RC
 Unseal_In_Unmarshal(Unseal_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->itemHandle = handles[0];
@@ -521,8 +521,8 @@ TPM_RC
 ECDH_KeyGen_In_Unmarshal(ECDH_KeyGen_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->keyHandle = handles[0];
@@ -549,7 +549,7 @@ TPM_RC
 ECC_Parameters_In_Unmarshal(ECC_Parameters_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    handles = handles;
+    (void) handles;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPMI_ECC_CURVE_Unmarshalu(&target->curveID, buffer, size);
@@ -665,7 +665,7 @@ TPM_RC
 Hash_In_Unmarshal(Hash_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    handles = handles;
+    (void) handles;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM2B_MAX_BUFFER_Unmarshalu(&target->data, buffer, size);
@@ -713,7 +713,7 @@ TPM_RC
 GetRandom_In_Unmarshal(GetRandom_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    handles = handles;
+    (void) handles;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_UINT16_Unmarshalu(&target->bytesRequested, buffer, size);
@@ -727,7 +727,7 @@ TPM_RC
 StirRandom_In_Unmarshal(StirRandom_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    handles = handles;
+    (void) handles;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM2B_SENSITIVE_DATA_Unmarshalu(&target->inData, buffer, size);
@@ -763,7 +763,7 @@ TPM_RC
 HashSequenceStart_In_Unmarshal(HashSequenceStart_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    handles = handles;
+    (void) handles;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM2B_AUTH_Unmarshalu(&target->auth, buffer, size);
@@ -783,8 +783,8 @@ TPM_RC
 SequenceUpdate_In_Unmarshal(SequenceUpdate_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->sequenceHandle = handles[0];
@@ -1053,7 +1053,7 @@ TPM_RC
 EC_Ephemeral_In_Unmarshal(EC_Ephemeral_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    handles = handles;
+    (void) handles;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPMI_ECC_CURVE_Unmarshalu(&target->curveID, buffer, size);
@@ -1177,7 +1177,7 @@ TPM_RC
 PCR_Read_In_Unmarshal(PCR_Read_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    handles = handles;
+    (void) handles;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPML_PCR_SELECTION_Unmarshalu(&target->pcrSelectionIn, buffer, size);
@@ -1251,8 +1251,8 @@ TPM_RC
 PCR_Reset_In_Unmarshal(PCR_Reset_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->pcrHandle = handles[0];
@@ -1464,8 +1464,8 @@ TPM_RC
 PolicyAuthorizeNV_In_Unmarshal(PolicyAuthorizeNV_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->authHandle = handles[0];
@@ -1522,8 +1522,8 @@ TPM_RC
 PolicyPhysicalPresence_In_Unmarshal(PolicyPhysicalPresence_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->policySession = handles[0];
@@ -1628,8 +1628,8 @@ TPM_RC
 PolicyAuthValue_In_Unmarshal(PolicyAuthValue_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->policySession = handles[0];
@@ -1640,8 +1640,8 @@ TPM_RC
 PolicyPassword_In_Unmarshal(PolicyPassword_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->policySession = handles[0];
@@ -1652,8 +1652,8 @@ TPM_RC
 PolicyGetDigest_In_Unmarshal(PolicyGetDigest_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->policySession = handles[0];
@@ -1680,8 +1680,8 @@ TPM_RC
 PolicyTemplate_In_Unmarshal(PolicyTemplate_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->policySession = handles[0];
@@ -1776,8 +1776,8 @@ TPM_RC
 ChangePPS_In_Unmarshal(ChangePPS_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->authHandle = handles[0];
@@ -1788,8 +1788,8 @@ TPM_RC
 ChangeEPS_In_Unmarshal(ChangeEPS_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->authHandle = handles[0];
@@ -1800,8 +1800,8 @@ TPM_RC
 Clear_In_Unmarshal(Clear_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->authHandle = handles[0];
@@ -1844,8 +1844,8 @@ TPM_RC
 DictionaryAttackLockReset_In_Unmarshal(DictionaryAttackLockReset_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->lockHandle = handles[0];
@@ -1922,8 +1922,8 @@ TPM_RC
 ContextSave_In_Unmarshal(ContextSave_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->saveHandle = handles[0];
@@ -1934,7 +1934,7 @@ TPM_RC
 ContextLoad_In_Unmarshal(ContextLoad_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    handles = handles;
+    (void) handles;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPMS_CONTEXT_Unmarshalu(&target->context, buffer, size);
@@ -1948,7 +1948,7 @@ TPM_RC
 FlushContext_In_Unmarshal(FlushContext_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    handles = handles;
+    (void) handles;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPMI_DH_CONTEXT_Unmarshalu(&target->flushHandle, buffer, size, NO);
@@ -2011,7 +2011,7 @@ TPM_RC
 GetCapability_In_Unmarshal(GetCapability_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    handles = handles;
+    (void) handles;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPM_CAP_Unmarshalu(&target->capability, buffer, size);
@@ -2037,7 +2037,7 @@ TPM_RC
 TestParms_In_Unmarshal(TestParms_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    handles = handles;
+    (void) handles;
 
     if (rc == TPM_RC_SUCCESS) {
 	rc = TSS_TPMT_PUBLIC_PARMS_Unmarshalu(&target->parameters, buffer, size);
@@ -2073,8 +2073,8 @@ TPM_RC
 NV_UndefineSpace_In_Unmarshal(NV_UndefineSpace_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->authHandle = handles[0];
@@ -2086,8 +2086,8 @@ TPM_RC
 NV_UndefineSpaceSpecial_In_Unmarshal(NV_UndefineSpaceSpecial_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->nvIndex = handles[0];
@@ -2099,8 +2099,8 @@ TPM_RC
 NV_ReadPublic_In_Unmarshal(NV_ReadPublic_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->nvIndex = handles[0];
@@ -2134,8 +2134,8 @@ TPM_RC
 NV_Increment_In_Unmarshal(NV_Increment_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->authHandle = handles[0];
@@ -2181,8 +2181,8 @@ TPM_RC
 NV_WriteLock_In_Unmarshal(NV_WriteLock_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->authHandle = handles[0];
@@ -2194,8 +2194,8 @@ TPM_RC
 NV_GlobalWriteLock_In_Unmarshal(NV_GlobalWriteLock_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->authHandle = handles[0];
@@ -2229,8 +2229,8 @@ TPM_RC
 NV_ReadLock_In_Unmarshal(NV_ReadLock_In *target, BYTE **buffer, uint32_t *size, TPM_HANDLE handles[])
 {
     TPM_RC rc = TPM_RC_SUCCESS;
-    buffer = buffer;
-    size = size;
+    (void) buffer;
+    (void) size;
 
     if (rc == TPM_RC_SUCCESS) {
 	target->authHandle = handles[0];
