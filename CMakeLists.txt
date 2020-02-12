@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.4)
+cmake_minimum_required(VERSION 3.12)
 
 project(ibmtpm20tss VERSION 1.3.0 LANGUAGES C)
 
